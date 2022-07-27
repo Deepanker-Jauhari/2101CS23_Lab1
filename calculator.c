@@ -15,11 +15,15 @@ int main() {
         break;
 
         case '-':
-        printf("%lf - %lf - %lf", num1, num2, num1-num2);
+        printf("%lf - %lf = %lf", num1, num2, num1-num2);
         break;
+
+        case '*':
+        printf("%lf*%lf = %lf", num1, num2, num1*num2);
 
         default:
         printf("Wrong Operator");
+        break;
     }
 
     return 0;
