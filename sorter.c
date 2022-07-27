@@ -1,6 +1,13 @@
 #include <stdio.h>
 #include <math.h>
 
+void swap(int *x, int *y)
+{
+    int temp = *x;
+    *x = *y;
+    *y = temp;
+}
+
 void insertionSort(int arr[], int n)
 {
     int i, key, j;
@@ -15,13 +22,6 @@ void insertionSort(int arr[], int n)
         arr[j + 1] = key;
     }
 }
-
-void swap(int *x, int *y)
-{
-    int temp = *x;
-    *x = *y;
-    *y = temp;
-}
   
 void selectionSort(int arr[], int n)
 {
@@ -34,6 +34,15 @@ void selectionSort(int arr[], int n)
 
         swap(&arr[min_index], &arr[i]);
     }
+}
+
+void bubbleSort(int arr[], int n)
+{
+    int i, j;
+    for (i = 0; i < n - 1; i++)
+        for (j = 0; j < n - i - 1; j++)
+            if (arr[j] > arr[j + 1])
+                swap(&arr[j], &arr[j + 1]);
 }
 
 void printArray(int arr[], int n)
@@ -69,6 +78,11 @@ int main() {
 
         case 2:
         selectionSort(arr, n);
+        printArray(arr, n);
+        break;
+
+        case 3:
+        bubbleSort(arr, n);
         printArray(arr, n);
         break;
 
