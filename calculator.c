@@ -4,7 +4,7 @@
 int main() {
     char operator;
     double num1, num2;
-    printf("Enter the operator (+,-,*,/,pow): ");
+    printf("Enter the operator (+,-,*,/,^): ");
     scanf("%c", &operator);
     printf("Enter the two numbers: ");
     scanf("%lf %lf", &num1, &num2);
@@ -24,6 +24,10 @@ int main() {
 
         case '/':
         printf("%lf/%lf = %lf", num1, num2, num1/num2);
+        break;
+
+        case '^':
+        printf("%lf^%lf = %lf", num1, num2, pow(num1, num2));
         break;
 
         default:
