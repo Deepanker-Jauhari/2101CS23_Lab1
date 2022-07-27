@@ -20,6 +20,11 @@ int main() {
 
         case '*':
         printf("%lf*%lf = %lf", num1, num2, num1*num2);
+        break;
+
+        case '/':
+        printf("%lf/%lf = %lf", num1, num2, num1/num2);
+        break;
 
         default:
         printf("Wrong Operator");
