@@ -96,6 +96,31 @@ void mergeSort(int arr[], int l, int r)
     }
 }
 
+void quickSort(int arr[],int first,int last){
+   int i, j, pivot, temp;
+   if(first<last){
+      pivot=first;
+      i=first;
+      j=last;
+      while(i<j){
+         while(arr[i]<=arr[pivot]&&i<last)
+         i++;
+         while(arr[j]>arr[pivot])
+         j--;
+         if(i<j){
+            temp=arr[i];
+            arr[i]=arr[j];
+            arr[j]=temp;
+         }
+      }
+      temp=arr[pivot];
+      arr[pivot]=arr[j];
+      arr[j]=temp;
+      quickSort(arr,first,j-1);
+      quickSort(arr,j+1,last);
+   }
+}
+
 void printArray(int arr[], int n)
 {
     int i;
@@ -113,12 +138,13 @@ int main() {
     for(int i= 0; i<n; ++i){
         scanf("%d", &arr[i]);
     }
-    printf("Enter Sorting Method: \n");
+ 
     printf("1- Insertion Sort \n");
     printf("2- Selection Sort \n");
     printf("3- Bubble Sort \n");
     printf("4- Merge Sort \n");
     printf("5- Quick Sort \n");
+    printf("Enter Sorting Method: ");
     scanf("%d", &m);
 
     switch(m) {
@@ -142,10 +168,14 @@ int main() {
         printArray(arr, n);
         break;
 
+        case 5:
+        quickSort(arr, 0, n-1);
+        printArray(arr, n);
+        break;
+
         default:
         printf("Please input a valid Sorting Method");
         break;
-
     }
 
 return 0;
